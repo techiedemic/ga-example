@@ -20,7 +20,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/techiedemic/ga-example")
+            url = uri("https://maven.pkg.github.com/")
         }
     }
     publications {

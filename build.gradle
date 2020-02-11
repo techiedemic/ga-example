@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'techiedemic'
-version = versioning.displayMode
+version = versioning.info.full
 
 sourceCompatibility = 1.8
 

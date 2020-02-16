@@ -22,7 +22,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Build with Gradle
-      run: ./gradlew build && ./gradlew release -Prelease.useAutomaticVersion=true
+      run: ./gradlew build && ./gradlew release
 
 
 

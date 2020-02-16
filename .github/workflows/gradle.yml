@@ -19,6 +19,9 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
+    - uses: fusion-engineering/setup-git-credentials@v2
+      with:
+        credentials: ${{secrets.GIT_CREDENTIALS}}
       run: ./gradlew build && ./gradlew release -Prelease.useAutomaticVersion=true
 
     - name: Publish to GitHub Packages

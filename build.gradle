@@ -51,7 +51,7 @@ publishing {
     }
 }
 
-task publish {
+publish {
     dependsOn = unSnapshotVersion
 }
 

@@ -52,7 +52,7 @@ publishing {
 }
 
 task publish {
-    dependsOn:unSnapshotVersion
+    dependsOn = unSnapshotVersion
 }
 
 //task checkedRelease {

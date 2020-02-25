@@ -50,11 +50,7 @@ publishing {
         }
     }
 }
-
-publish {
-    dependsOn = unSnapshotVersion
-}
-
+publish.dependsOn(unSnapshotVersion)
 //task checkedRelease {
 //    print()
 //    print(getCurrentGitBranch())

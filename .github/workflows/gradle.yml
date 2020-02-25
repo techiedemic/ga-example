@@ -27,7 +27,7 @@ jobs:
 
 
     - name: Publish to GitHub Packages
-      run: ./gradlew unSnapshotVersion && ./gradle publish
+      run: ./gradlew unSnapshotVersion && ./gradlew publish
       env:
         USERNAME: ${{ github.actor }}
         PASSWORD: ${{ secrets.GITHUB_TOKEN }}

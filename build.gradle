@@ -51,6 +51,10 @@ publishing {
     }
 }
 
+task publish {
+    dependsOn:unSnapshotVersion
+}
+
 //task checkedRelease {
 //    print()
 //    print(getCurrentGitBranch())

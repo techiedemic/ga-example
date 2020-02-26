@@ -22,7 +22,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Create home  gradle property
-      run: printf "signingKey=${{ secrets.signingKey }}\nsigningPassword=${{ secrets.signingPassword }}" > ~/.gradle.properties
+      run: printf "signingKey=${{ secrets.signingKey }}\nsigningPassword=${{ secrets.signingPassword }}" > ~/.gradle/gradle.properties
     - name: Sign Archives
       run: ./gradlew assemble -x signArchives
     - name: Build with Gradle

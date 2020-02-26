@@ -22,9 +22,9 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Create home  gradle property
-      run: echo "signingKey=${{ secrets.signingKey }}\nsigningPassword=${{ secrets.signingPassword }}" > ~/.gradle.properties && cat ~/.gradle.properties
+      run: echo "signingKey=${{ secrets.signingKey }}\nsigningPassword=${{ secrets.signingPassword }}" > ~/.gradle.properties
     - name: Sign Archives
-      run:
+      run: gradle signArchives
     - name: Build with Gradle
       run: gradle release
       env:

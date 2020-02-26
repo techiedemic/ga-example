@@ -24,7 +24,7 @@ jobs:
     - name: Create home  gradle property
       run: printf "signingKey=${{ secrets.signingKey }}\nsigningPassword=${{ secrets.signingPassword }}" > ~/.gradle.properties
     - name: Sign Archives
-      run: gradle signArchives
+      run: ./gradlew assemble -x signArchives
     - name: Build with Gradle
       run: gradle release
       env:

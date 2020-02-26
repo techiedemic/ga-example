@@ -25,8 +25,8 @@ shadowJar {
 }
 
 signing {
-    def signingKey = findProperty("signingKey")
-    def signingPassword = findProperty("signingPassword")
+    def signingKey = System.getenv("signingKey")
+    def signingPassword = System.getenv("signingPassword")
     useInMemoryPgpKeys(signingKey, signingPassword)
     sign configurations.archives
 }

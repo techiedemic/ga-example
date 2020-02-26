@@ -1,6 +1,6 @@
 name: Java CI
 
-on: 
+on:
   push:
     branches:
       - master
@@ -11,25 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - uses: fregante/setup-git-token@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Create home  gradle property
-      run: printf "signingKey=${{ secrets.signingKey }}\nsigningPassword=${{ secrets.signingPassword }}" > ~/.gradle/gradle.properties
-    - name: Sign Archives
-      run: ./gradlew assemble -x signArchives
-    - name: Build with Gradle
-      run: gradle release
-      env:
-        USERNAME: ${{ github.actor }}
-        PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - uses: fregante/setup-git-token@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Sign Archives
+        run: ./gradlew assemble -x signArchives
+        env:
+          signingKey: ${{ secrets.signingKey }}
+          signingPassword: ${{ secrets.signingPassword }}
+      - name: Build with Gradle
+        run: gradle release
+        env:
+          USERNAME: ${{ github.actor }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
 
 

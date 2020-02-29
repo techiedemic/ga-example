@@ -27,7 +27,7 @@ jobs:
           signingKey: ${{ secrets.signingKey }}
           signingPassword: ${{ secrets.signingPassword }}
       - name: Build with Gradle
-        run: gradle release
+        run: ./gradlew release
         env:
           USERNAME: ${{ github.actor }}
           PASSWORD: ${{ secrets.GITHUB_TOKEN }}

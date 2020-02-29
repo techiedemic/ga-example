@@ -21,6 +21,8 @@ jobs:
       - uses: fregante/setup-git-token@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update gradle wrapper
+        run: ./gradlew wrapper --gradle-version 6.2.1
       - name: Sign Archives
         run: ./gradlew assemble -x signArchives
         env:
